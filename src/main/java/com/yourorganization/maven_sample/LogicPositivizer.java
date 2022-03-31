@@ -19,6 +19,8 @@ public class LogicPositivizer {
     public static void main(String[] args) {
         // JavaParser has a minimal logging class that normally logs nothing.
         // Let's ask it to write to standard out:
+        Private int i=1000;
+        private String t="talk";
         Log.setAdapter(new Log.StandardOutStandardErrorAdapter());
         
         // SourceRoot is a tool that read and writes Java files from packages on a certain root directory.
@@ -61,5 +63,17 @@ public class LogicPositivizer {
                 CodeGenerationUtils.mavenModuleRoot(LogicPositivizer.class)
                         // appended with a path to "output"
                         .resolve(Paths.get("output")));
+        /*A fully working sample Maven project that parses and generates code with JavaParser
+
+This is targeted at people without Maven experience.
+
+To build it, you will need to download and unpack the latest (or recent) version of Maven (https://maven.apache.org/download.cgi) and put the mvn command on your path. Then, you will need to install a Java 1.8 (or higher) JDK (not JRE!), and make sure you can run java from the command line. Now you can run mvn clean install and Maven will compile your project, an put the results it in two jar files in the target directory. If you like to run from the command line, execute java -jar target/javaparser-maven-sample-1.0-SNAPSHOT-shaded.jar.
+
+How you run this code is up to you, but usually you would start by using an IDE like NetBeans, Intellij IDEA, or Eclipse.
+
+The Maven dependencies may lag behind the official releases a bit.
+
+If you notice some problems with this setup, please open an issue. */
     }
+
 }
